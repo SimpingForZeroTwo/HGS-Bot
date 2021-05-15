@@ -1,0 +1,12 @@
+{
+	"prefix": "!!",
+	"token": "ODI5NjUxMDg3NjAxODI3ODUx.YG7OyQ.l7SUgDveL5zDRHprpMBrL2gCxzA",
+    "districts": ["District 1","District 2","District 3","District 4","District 5","District 6","District 7","District 8","District 9","District 10","District 11","District 12"],
+    "weapons": ["trident","longsword","longbow","mace","pair of poison-laced knives","hatchet"],
+    "supplies": ["fresh food","clean water","medical supplies","a makeshift tent","a set of light armor"],
+    "s_d_lines": [" falls into a pit and dies"," dies from thirst"," accidentally steps onto a landmine and dies"],
+    "s_lines_day": [" questions the point of this game."," is missing their family."," spent their day gathering food"," is having a mental breakdown."," goes hunting for tributes alone."," sees smoke rising in the distance, but decides not to investigate."," practices her archery."," constructs a shack."," screams for help."," makes a wooden spear."," tries to sleep through the entire day."," quietly hums."," passes out from exhaustion."," collects fruit from a tree."," discovers a river."],
+    "s_lines_night": [" has problems falling asleep."," cries themselves to sleep."," is scared of an ambush, chooses not to sleep."," continues hunting under the darkness of the night."," looks at the night sky"," loses sight of where he is."," sets up camp for night."," is awoken by nightmares."," is unable to start a fire, and sleeps without warmth."],
+    "d_lines": [" talk about the tributes still alive"," tell stories about themselves to each other"," run into each other but decide to leave without any altercation"],
+    "characters": ["Bulma","Goku","Vegeta","Emilia","Subaru","Rem","Uraraka","Deku","Bakugo","Todoroki","All Might","Asuna","Kirito","Hinata","Naruto","Boruto","Ram","ZeroTwo","Ichigo","Nezuko","Ash","Luffy","Mewtwo","Trump"]
+}

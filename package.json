@@ -1,0 +1,15 @@
+{
+  "name": "hgs_bot",
+  "version": "1.0.0",
+  "description": "Hunger Games Simulator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "E1nst31n",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {}
+}
