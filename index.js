@@ -24,7 +24,7 @@ client.on('message', message => {
     {
         message.channel.send('Pong'+prefix);
     }
-    else if (command==='end' && game == 2) 
+    else if (command==='end' && game == 2 && message.author.username === host) 
     {
         message.channel.send('Game has ended due to unforeseen circumstances');
         game = 0
