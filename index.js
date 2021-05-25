@@ -37,7 +37,7 @@ client.on('message', message => {
         .addFields(
             { name: "Ping", value: "Ping to check the availability of the bot."},
             { name: "Start", value: "Used to start a game of Hunger Games. Whoever uses this command becomes the host."},
-            { name: "Ikuzo", value: "To be used when a game has started, to enter the game as a participant."},
+            { name: "Join", value: "To be used when a game has started, to enter the game as a participant."},
             { name: "Commence", value: "Use once all players have entered the game, and are ready. Can only be used by the host."},
             { name: "Status", value: "Can be used at any time by anyone to check the status of all tributes during a game."},
             { name: "Proceed", value: "To simulate the events of the next day. Can only be used by the host. Please **Don't** spam this command."},
@@ -59,7 +59,7 @@ client.on('message', message => {
         {
             host = message.author.username
             message.channel.send("IKUZO!!!")
-            message.channel.send("All tributes, get ready by using the 'ikuzo' command.")
+            message.channel.send("All tributes, get ready by using the 'join' command.")
             message.channel.send("Use the 'commence' command when everyone is ready.")
             totalP = 0
             for(var i =0;i<24;i++)
@@ -74,8 +74,8 @@ client.on('message', message => {
             message.channel.send("A game is already underway");
         }
     }
-    //IKUZO!!!
-    else if(command==='ikuzo' && game==1)
+    //JOIN!!!
+    else if(command==='join' && game==1)
     {
         if(totalP==24)
         {
