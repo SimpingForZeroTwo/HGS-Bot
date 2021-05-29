@@ -1,5 +1,6 @@
 {
 	"prefix": "!!",
+    "invite": "https://discord.com/oauth2/authorize?client_id=829651087601827851&scope=bot",
     "districts": ["District 1","District 2","District 3","District 4","District 5","District 6","District 7","District 8","District 9","District 10","District 11","District 12"],
     "weapons": ["trident","longsword","longbow","mace","pair of poison-laced knives","hatchet"],
     "supplies": ["fresh food","clean water","medical supplies","a makeshift tent","a set of light armor"],

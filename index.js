@@ -1,4 +1,4 @@
-const {prefix,s_d_lines,s_lines_day,s_lines_night,d_lines,weapons,supplies,characters} = require('./config.json')
+const {prefix,s_d_lines,invite,s_lines_day,s_lines_night,d_lines,weapons,supplies,characters} = require('./config.json')
 const Discord = require('discord.js');
 const client = new Discord.Client();
 let game = 0;
@@ -43,6 +43,7 @@ client.on('message', message => {
             { name: "Proceed", value: "To simulate the events of the next day. Can only be used by the host. Please **Don't** spam this command."},
             { name: "Help", value: "You are already here."},
             { name: "End", value: "Command used to end the game pre-maturely."},
+            { name: "Invite Link", value: "[Link.]("+invite+")"},
             { name: '\u200B', value: '\u200B' },
             { name: "Patch Notes:", value: "```yaml\nThe bot is still in Alpha so it is just a working-skeleton.\nThe Status window needs to be reworked, for better readability.\nThe Daily events need to be tweaked/formatted, so they look more readable.\nDay-end Cannons for the deceased are still unavailable.\nA sorted post-game result page is still unavailable.\nE1nst31n\n```"},
             
