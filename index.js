@@ -1,4 +1,4 @@
-const {prefix,token,s_d_lines,s_lines_day,s_lines_night,d_lines,weapons,supplies,characters} = require('./config.json')
+const {prefix,s_d_lines,s_lines_day,s_lines_night,d_lines,weapons,supplies,characters} = require('./config.json')
 const Discord = require('discord.js');
 const client = new Discord.Client();
 let game = 0;
