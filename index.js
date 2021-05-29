@@ -44,7 +44,7 @@ client.on('message', message => {
             { name: "Help", value: "You are already here."},
             { name: "End", value: "Command used to end the game pre-maturely."},
             { name: '\u200B', value: '\u200B' },
-            { name: "Patch Notes:", value: "```yaml\nThe bot is still in Alpha so it is just a working-skeleton.\nThe Status window needs to be reworked, for better readability.\nThe Daily events need to be tweaked/formatted, so they look more readable.\nDay-end Cannons for the deceased are still unavailable.\nA sorted post-game result page is still unavailable.\n```"},
+            { name: "Patch Notes:", value: "```yaml\nThe bot is still in Alpha so it is just a working-skeleton.\nThe Status window needs to be reworked, for better readability.\nThe Daily events need to be tweaked/formatted, so they look more readable.\nDay-end Cannons for the deceased are still unavailable.\nA sorted post-game result page is still unavailable.\nE1nst31n\n```"},
             
         )
         .setTimestamp()
