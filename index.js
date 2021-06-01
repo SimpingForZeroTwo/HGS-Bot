@@ -84,7 +84,7 @@ client.on('message', message => {
             return;
         }
         players[totalP][0] = args.length>0?args.shift():message.author.username;
-        message.reply(players[totalP][0]+"is ready!\nTributes in-game:"+(totalP+1));
+        message.reply(players[totalP][0]+" is ready!\nTributes in-game : "+(totalP+1));
         players[totalP][1] = "Alive";
         players[totalP][2] = "District ";
         players[totalP][3] = 0;
@@ -373,7 +373,7 @@ client.on('message', message => {
                 else if(j==3)
                 {
                     var k = Math.random()
-                    if(k<0.3 && f==0)
+                    if(k<0.2 && f==0)
                     message.channel.send("`"+players[arr[i]][0]+"`, `"+players[arr[i+1]][0]+"` and `"+players[arr[i+2]][0]+"` hunt for other tributes")
                     else if(k<0.45)
                     {
@@ -385,7 +385,7 @@ client.on('message', message => {
                         i--
                         console.log(arr)
                     }
-                    else if(k<0.75 && f==0)
+                    else if(k<0.65 && f==0)
                     message.channel.send("`"+players[arr[i]][0]+"`, `"+players[arr[i+1]][0]+"` and `"+players[arr[i+2]][0]+"` hold hands together and cheerfully sing songs")
                     
                     else if(k<0.9)
