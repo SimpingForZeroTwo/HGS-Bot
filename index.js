@@ -83,8 +83,8 @@ client.on('message', message => {
             message.reply(" take your seat, the hunger games are about to begin.");
             return;
         }
-        message.reply("is ready!\nTributes in-game:"+(totalP+1));
         players[totalP][0] = args.length>0?args.shift():message.author.username;
+        message.reply(players[totalP][0]+"is ready!\nTributes in-game:"+(totalP+1));
         players[totalP][1] = "Alive";
         players[totalP][2] = "District ";
         players[totalP][3] = 0;
