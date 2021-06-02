@@ -1,6 +1,14 @@
 const {prefix,s_d_lines,invite,s_lines_day,s_lines_night,d_lines,weapons,supplies,characters} = require('./config.json')
+const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
+
 let game = 0;
 let players = new Array(24);
 let totalP = 0;
@@ -20,60 +28,19 @@ client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-    if (command==='ping') 
-    {
-        message.channel.send('Pong'+prefix+message.author.displayAvatarURL() );
-    }
-    else if (command==='end' && (game == 2 || game == 1) && message.author.username === host) 
-    {
-        message.channel.send('Game has ended due to unforeseen circumstances');
-        game = 0
-    }
-    else if (command==='help') 
-    {
-        const playersEmbed = new Discord.MessageEmbed()
-        .setColor('#ff5555')
-        .setTitle('List of Commands :')
-        .addFields(
-            { name: "Ping", value: "Ping to check the availability of the bot."},
-            { name: "Start", value: "Used to start a game of Hunger Games. Whoever uses this command becomes the host."},
-            { name: "Join", value: "To be used when a game has started, to enter the game as a participant."},
-            { name: "Commence", value: "Use once all players have entered the game, and are ready. Can only be used by the host."},
-            { name: "Status", value: "Can be used at any time by anyone to check the status of all tributes during a game."},
-            { name: "Proceed", value: "To simulate the events of the next day. Can only be used by the host. Please **Don't** spam this command."},
-            { name: "Help", value: "You are already here."},
-            { name: "End", value: "Command used to end the game pre-maturely."},
-            { name: "Invite Link", value: "[Link.]("+invite+")"},
-            { name: '\u200B', value: '\u200B' },
-            { name: "Patch Notes:", value: "```yaml\nThe bot is still in Alpha so it is just a working-skeleton.\nThe Status window needs to be reworked, for better readability.\nThe Daily events need to be tweaked/formatted, so they look more readable.\nDay-end Cannons for the deceased are still unavailable.\nA sorted post-game result page is still unavailable.\nE1nst31n\n```"},
-            
-        )
-        .setTimestamp()
-        .setFooter('May the strongest tribute survive');
 
-        message.channel.send(playersEmbed);
-    } 
-    //START!!!!
-    else if (command==='start')
+    if (!client.commands.has(command)) return;
+
+	try {
+		client.commands.get(command).execute(message, args, game, players, totalP, day, arr, host);
+	} catch (error) {
+		console.error(error);
+		message.reply('there was an error trying to execute that command!');
+	}
+
+    if (command==='start')
     {
-        if(game == 0)
-        {
-            host = message.author.username
-            message.channel.send("IKUZO!!!")
-            message.channel.send("All tributes, get ready by using the 'join' command.")
-            message.channel.send("Use the 'commence' command when everyone is ready.")
-            totalP = 0
-            for(var i =0;i<24;i++)
-            {
-                players[i]= []
-            }
-            game = 1;
-            console.log("Game Start!")
-        }
-        else
-        {
-            message.channel.send("A game is already underway");
-        }
+        
     }
     //JOIN!!!
     else if(command==='join' && game==1)
@@ -83,7 +50,7 @@ client.on('message', message => {
             message.reply(" take your seat, the hunger games are about to begin.");
             return;
         }
-        players[totalP][0] = args.length>0?args.shift():message.author.username;
+        players[totalP][0] = message.mentions.users.size>0?args.shift():message.author.username;
         message.reply(players[totalP][0]+" is ready!\nTributes in-game : "+(totalP+1));
         players[totalP][1] = "Alive";
         players[totalP][2] = "District ";
