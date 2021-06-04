@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'start',
 	description: 'Used to start a game of Hunger Games. Whoever uses this command becomes the host.',
-	execute(message, args) {
+	execute(message, args, message, args, prefix, game, players, totalP, day, arr, host) {
 		if(game == 0)
         {
             host = message.author.username

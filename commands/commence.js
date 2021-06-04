@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'commence',
 	description: 'Use once all players have entered the game, and are ready. Can only be used by the host.',
-	execute(message, args) {
+	execute(message, args,message, args, prefix, game, players, totalP, day, arr, host) {
 		if(game==1 && message.author.username === host)
 		{
 			console.log("Commenced!")

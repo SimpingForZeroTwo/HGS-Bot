@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'proceed',
 	description: "To simulate the events of the next day. Can only be used by the host. Please **Don't** spam this command.",
-	execute(message, args) {
+	execute(message, args, message, args, prefix, game, players, totalP, day, arr, host) {
 		if(game==2 && message.author.username === host)
 		{
 			arr.sort( ()=>Math.random()-0.5 );
