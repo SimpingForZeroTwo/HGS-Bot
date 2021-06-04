@@ -25,5 +25,7 @@ module.exports = {
 		{
 			message.reply(" a game is already underway.")
 		}
+		return [message, args, prefix, game, players, totalP, day, arr, host]
+
 	},
 };

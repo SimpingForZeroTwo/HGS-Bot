@@ -417,5 +417,7 @@ module.exports = {
 				game=0
 			}
 		}
+		return [message, args, prefix, game, players, totalP, day, arr, host]
+
 	},
 };

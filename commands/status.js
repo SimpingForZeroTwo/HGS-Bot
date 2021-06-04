@@ -36,5 +36,7 @@ module.exports = {
 			.setFooter('May the strongest tribute survive');
 			message.channel.send(playersEmbed);
 		}
+		return [message, args, prefix, game, players, totalP, day, arr, host]
+
 	},
 };

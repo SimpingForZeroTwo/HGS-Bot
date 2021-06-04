@@ -65,5 +65,7 @@ module.exports = {
 			message.channel.send("Use the 'proceed' command to continue.")
 			message.channel.send("Use the 'status' command to check the players' status.")
 		}
+		return [message, args, prefix, game, players, totalP, day, arr, host]
+
 	},
 };

@@ -7,5 +7,6 @@ module.exports = {
             message.channel.send('Game has ended due to unforeseen circumstances');
             game = 0
         }
+		return [message, args, prefix, game, players, totalP, day, arr, host]
 	},
 };
