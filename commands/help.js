@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 module.exports = {
 	name: 'help',
 	description: 'You are already here.',
@@ -23,6 +24,6 @@ module.exports = {
         .setFooter('May the strongest tribute survive');
 
         message.channel.send(playersEmbed);
-        return [message, args, prefix, game, players, totalP, day, arr, host]
+        return message, args, prefix, game, players, totalP, day, arr, host
 	},
 };
