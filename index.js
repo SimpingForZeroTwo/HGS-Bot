@@ -33,7 +33,7 @@ client.on('message', message => {
 
 	try 
     {
-		client.commands.get(command).execute(message, args, game, players, totalP, day, arr, host);
+		client.commands.get(command).execute(message, args);
 	} 
     catch (error) 
     {
