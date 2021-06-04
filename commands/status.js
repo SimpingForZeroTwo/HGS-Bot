@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'status',
 	description: 'Can be used at any time by anyone to check the status of all tributes during a game.',
-	execute(message, args, game, players, totalP, day, arr, host) {
+	execute(message, args) {
 		if(game == 0 || game == 2)
 		{
 			const playersEmbed = new Discord.MessageEmbed()

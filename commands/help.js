@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'help',
 	description: 'You are already here.',
-	execute(message, args, game, players, totalP, day, arr, host) {
+	execute(message, args) {
 		const playersEmbed = new Discord.MessageEmbed()
         .setColor('#ff5555')
         .setTitle('List of Commands :')
