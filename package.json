@@ -4,8 +4,7 @@
   "description": "Hunger Games Simulator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node test.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "E1nst31n",
   "license": "ISC",
