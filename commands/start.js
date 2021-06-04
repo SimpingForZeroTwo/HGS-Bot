@@ -18,7 +18,7 @@ module.exports = {
         }
         else
         {
-            message.channel.send("A game is already underway");
+            message.reply(" a game is already underway.");
         }
 	},
 };
