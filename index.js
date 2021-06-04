@@ -22,7 +22,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
     if (command==='ping') 
     {
-        message.channel.send('Pong'+prefix+message.author.displayAvatarURL() );
+        message.channel.send('Pong'+prefix );
     }
     else if (command==='end' && (game == 2 || game == 1) && message.author.username === host) 
     {
