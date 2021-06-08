@@ -427,10 +427,11 @@ client.on('message', message => {
             console.log(players)
             console.log(day)
             message.channel.send("`Far in the Distance, you hear the sound of cannon fire. With each boom, echoing through the arena, the sky lights up with the face of a tribute.`")
-            message.channel.send("$(cannons.length) cannons fired.")
-            for(num in cannons)
+            message.channel.send((cannons.length)+" cannons fired.");
+            z=0
+            while(z < cannons.length)
             {
-                message.channel.send("`"+players[num][0]+"`")
+                message.channel.send("`"+players[cannons[z]][0]+"`");z++
 
             }
             message.channel.send("Good Game,Well Played")
