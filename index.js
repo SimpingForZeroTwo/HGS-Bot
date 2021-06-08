@@ -438,9 +438,11 @@ client.on('message', message => {
                 message.channel.send("`"+players[cannons[z]][0]+"`");z++
 
             }
-            message.channel.send("Good Game,Well Played")
-            message.channel.lastMessage.react("🇫")
+            mess = message.channel.send("Good Game,Well Played")
+            mess.react("🇫")
             cannons=[]
+            message.channel.send("_ _ _ _ _ _ _");
+
         }
         else
         {
@@ -484,9 +486,9 @@ client.on('message', message => {
                     var k = Math.random()
                     if(k<0.2 && f==0)
                     message.channel.send("`"+players[arr[i]][0]+"` and `"+players[arr[i+1]][0]+"`"+d_lines[Math.floor(Math.random()*3)])
-                    else if(k<0.3)
+                    else if(k<0.25)
                     message.channel.send("`"+players[arr[i]][0]+"` ambushes `"+players[arr[i+1]][0]+"`, but `"+players[arr[i+1]][0]+"` manages to escape")
-                    else if(k<0.4 && f==0)
+                    else if(k<0.35 && f==0)
                     message.channel.send("`"+players[arr[i]][0]+"` defeats `"+players[arr[i+1]][0]+"` in a fight, but spares their life.")
                     else if(k<0.5)
                     message.channel.send("`"+players[arr[i]][0]+"` secretly stalks `"+players[arr[i+1]][0]+"`")
