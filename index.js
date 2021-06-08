@@ -33,8 +33,11 @@ client.on('message', message => {
     {
         const playersEmbed = new Discord.MessageEmbed()
         .setColor('#ff5555')
-        .setTitle('List of Commands :')
+        .setAuthor('E1nst31n')
+        .setTitle('The Hunger Games Bot')
+        .setDescription('This bot simulates a match of Hunger Games, based on the series of books by the same name written by Suzzane Collins. Upto 24 players can join the game at once as tributes, and the bot does the rest. `Bots are added if 24 players are not present`. Sit back and enjoy the as the bot does the rest for you.')
         .addFields(
+            { name: "List of Commands : ", value: " "},
             { name: "Ping", value: "Ping to check the availability of the bot."},
             { name: "Start", value: "Used to start a game of Hunger Games. Whoever uses this command becomes the host."},
             { name: "Join", value: "To be used when a game has started, to enter the game as a participant."},
@@ -45,7 +48,7 @@ client.on('message', message => {
             { name: "End", value: "Command used to end the game pre-maturely."},
             { name: "Invite Link", value: "[Link.]("+invite+")"},
             { name: '\u200B', value: '\u200B' },
-            { name: "Patch Notes:", value: "```yaml\nThe bot is still in Alpha so it is just a working-skeleton.\nThe Status window needs to be reworked, for better readability.\nThe Daily events need to be tweaked/formatted, so they look more readable.\nDay-end Cannons for the deceased are still unavailable.\nA sorted post-game result page is still unavailable.\nE1nst31n\n```"},
+            { name: "Patch Notes:", value: "```yaml\nThe bot is still in Alpha so it is just a working-skeleton.\n~~The Status window needs to be reworked, for better readability.~~\nThe Daily events need to be tweaked/formatted and pfps' have to be added, so they look more readable.\n~~Day-end Cannons for the deceased are still unavailable.~~\nA sorted post-game result page is still unavailable.\n\nE1nst31n\n```"},
             
         )
         .setTimestamp()
@@ -623,9 +626,9 @@ client.on('message', message => {
         if(arr.length==1)
         {
             message.channel.send("_ _ _ _ _ _ _")
-            message.channel.send("The crowd cheers and roars as the winner to a well-fought Hunger Games is decided. Congratulations to "+players[arr[0]][2]+", let's all welcome their new hero. \n```fix\n"+players[arr[0]][0]+" is the winner\n"+players[arr[0]][2]+"    Kills: "+players[arr[0]][3]+"\n```")
-            players.sort((a,b) => a[3]-b[3])
-            message.channel.send("`Most Kills : "+players[0][3]+"("+players[0][0]+")")
+            message.channel.send("`The crowd cheers and roars as the winner to a well-fought Hunger Games is decided. Congratulations to "+players[arr[0]][2]+", let's all welcome their new hero.` \n```fix\n"+players[arr[0]][0]+" is the winner\n"+players[arr[0]][2]+"    Kills: "+players[arr[0]][3]+"\n```")
+            players.sort((a,b) => a[3] - b[3])
+            message.channel.send("`Most Kills : "+players[0][3]+"("+players[0][0]+")`")
             message.channel.send("_ _ _ _ _ _ _")
             game=0
         }
