@@ -37,7 +37,7 @@ client.on('message', message => {
         .setTitle('The Hunger Games Bot')
         .setDescription('This bot simulates a match of Hunger Games, based on the series of books by the same name written by Suzzane Collins. Upto 24 players can join the game at once as tributes, and the bot does the rest. `Bots are added if 24 players are not present`. Sit back and enjoy the as the bot does the rest for you.')
         .addFields(
-            { name: "List of Commands : ", value: " "},
+            { name: "List of Commands : ", value: " ....................... "},
             { name: "Ping", value: "Ping to check the availability of the bot."},
             { name: "Start", value: "Used to start a game of Hunger Games. Whoever uses this command becomes the host."},
             { name: "Join", value: "To be used when a game has started, to enter the game as a participant."},
