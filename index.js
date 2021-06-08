@@ -14,7 +14,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 client.on('ready', () => {
-    client.user.setActivity(prefix+"help on " + client.guilds.length + " servers")
+    client.user.setActivity(prefix+"help on " + client.guilds.cache.size + " servers")
 })
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -35,7 +35,7 @@ client.on('message', message => {
         .setColor('#ff5555')
         .setAuthor('E1nst31n')
         .setTitle('The Hunger Games Bot')
-        .setDescription('This bot simulates a match of Hunger Games, based on the series of books by the same name written by Suzzane Collins. Upto 24 players can join the game at once as tributes, and the bot simulates the rest of the game. `Bots are added if 24 players are not present`. Sit back and enjoy the as the bot does the rest for you.')
+        .setDescription('This bot simulates a match of Hunger Games, based on the series of books by the same name written by Suzzane Collins. Upto 24 players can join the game at once as tributes, and the bot simulates the rest of the game. `Bots are added if 24 players are not present`. Sit back and enjoy the match as the bot does the rest for you.')
         .addFields(
             { name: "List of Commands : ", value: " ....................... "},
             { name: "Ping", value: "Ping to check the availability of the bot."},
@@ -433,18 +433,20 @@ client.on('message', message => {
             day++
             console.log(players)
             console.log(day)
-            message.channel.send("`Far in the Distance, you hear the sound of cannon fire. With each boom, echoing through the arena, the sky lights up with the face of a tribute.`")
-            message.channel.send((cannons.length)+" cannons fired.");
-            z=0
-            while(z < cannons.length)
-            {
-                message.channel.send("`"+players[cannons[z]][0]+"`");z++
+            if (cannons != []) {
+                message.channel.send("`Far in the Distance, you hear the sound of cannon fire. With each boom, echoing through the arena, the sky lights up with the face of a tribute.`")
+                message.channel.send((cannons.length)+" cannons fired.");
+                z=0
+                while(z < cannons.length)
+                {
+                    message.channel.send("`"+players[cannons[z]][0]+"`");z++
 
+                }
+                //mess = message.channel.send("Good Game,Well Played")
+                //mess.react("🇫")
+                cannons=[]
+                message.channel.send("_ _ _ _ _ _ _");
             }
-            //mess = message.channel.send("Good Game,Well Played")
-            //mess.react("🇫")
-            cannons=[]
-            message.channel.send("_ _ _ _ _ _ _");
         }
         else
         {
