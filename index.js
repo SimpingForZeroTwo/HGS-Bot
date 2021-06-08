@@ -187,6 +187,7 @@ client.on('message', message => {
     else if(command==="proceed" && game==2 && message.author.username === host)
     {
         arr.sort( ()=>Math.random()-0.5 );
+        cannons = [];
         console.log(arr)
         if(day==0)
         {
@@ -210,14 +211,16 @@ client.on('message', message => {
                             players[arr[i]][3]++
                             i++
                             players[arr[i]][1]="Dead"
+                            cannons.push(arr[i])
                             arr.splice(i,1)
                             i--
                             console.log(arr)
                         }
                         else
                         {
-                            message.channel.send("`"+players[arr[i]][0]+"` starts late due to nervousness, falls of the podium in a panic and lands on their neck... and meet their end quite early")
+                            message.channel.send("`"+players[arr[i]][0]+"` starts late due to nervousness, falls of the podium in a panic and lands on their neck... and meet their end, quite early")
                             players[arr[i]][1]="Dead"
+                            cannons.push(arr[i])
                             arr.splice(i,1)
                             i--
                             console.log(arr)
@@ -267,6 +270,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"`"+s_d_lines[Math.floor(Math.random()*3)])
                         players[arr[i]][1]="Dead"
+                        cannons.push(arr[i])
                         arr.splice(i,1)
                         i--
                         console.log(arr)
@@ -288,6 +292,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` smashes `"+players[arr[i+1]][0]+"'s` head with a bottle of vodka, *cyka blyat* style")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -297,6 +302,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` stabs `"+players[arr[i+1]][0]+"` while his back is turned")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -306,6 +312,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` kills `"+players[arr[i+1]][0]+"` while he is resting")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -315,6 +322,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` strangles `"+players[arr[i+1]][0]+"` with a rope")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -324,6 +332,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` catches `"+players[arr[i+1]][0]+"` off guard and kills him")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -333,6 +342,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` tracks down and kills `"+players[arr[i+1]][0]+"`")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -342,6 +352,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` sets `"+players[arr[i+1]][0]+"` on fire with a molotov")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -351,6 +362,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` poisons `"+players[arr[i+1]][0]+"'s` food, killing him")
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -360,6 +372,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` kills `"+players[arr[i+1]][0]+"` with a "+weapons[Math.floor(Math.random()*6)])
                         players[arr[i]][3]++
                         players[arr[i+1]][1]="Dead"
+                        cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -376,6 +389,7 @@ client.on('message', message => {
                         players[arr[i]][3]++
                         players[arr[i+1]][3]++
                         players[arr[i+2]][1]="Dead"
+                        cannons.push(arr[i+2])
                         arr.splice(i+2,1)
                         i--
                         console.log(arr)
@@ -389,16 +403,17 @@ client.on('message', message => {
                         players[arr[i]][3]++
                         players[arr[i+1]][3]++
                         players[arr[i+2]][1]="Dead"
+                        cannons.push(arr[i+2])
                         arr.splice(i+2,1)
                         i--
                         console.log(arr)
                     }
                     else
                     {
-                        message.channel.send("`"+players[arr[i]][0]+"` sets an explosive off, killing `"+players[arr[i+1]][0]+"` and `"+players[arr[i+2]][0]+"`")
+                        message.channel.send("`"+players[arr[i]][0]+"` sets off an explosive , killing `"+players[arr[i+1]][0]+"` and `"+players[arr[i+2]][0]+"`")
                         players[arr[i]][3]= 2 + players[arr[i]][3]
-                        players[arr[i+1]][1]="Dead"
-                        players[arr[i+2]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
+                        players[arr[i+2]][1]="Dead";cannons.push(arr[i+2])
                         arr.splice(i+1,2)
                         i=i-2
                         console.log(arr)
@@ -411,6 +426,16 @@ client.on('message', message => {
             day++
             console.log(players)
             console.log(day)
+            message.channel.send("`Far in the Distance, you hear the sound of cannon fire. With each boom, echoing through the arena, the sky lights up with the face of a tribute.`")
+            message.channel.send("$(cannons.length) cannons fired.")
+            for(num in cannons)
+            {
+                message.channel.send("`"+players[num][0]+"`")
+
+            }
+            message.channel.send("Good Game,Well Played")
+            message.channel.lastMessage.react(":regional_indicator_f:")
+            cannons=[]
         }
         else
         {
@@ -443,7 +468,7 @@ client.on('message', message => {
                     else
                     {
                         message.channel.send("`"+players[arr[i]][0]+"`"+s_d_lines[Math.floor(Math.random()*3)])
-                        players[arr[i]][1]="Dead"
+                        players[arr[i]][1]="Dead";cannons.push(arr[i])
                         arr.splice(i,1)
                         i--
                         console.log(arr)
@@ -464,7 +489,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` smashes `"+players[arr[i+1]][0]+"'s` head with a bottle of vodka, *cyka blyat* style")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -473,7 +498,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` stabs `"+players[arr[i+1]][0]+"` while his back is turned")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -482,7 +507,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` kills `"+players[arr[i+1]][0]+"` while he is resting")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -491,7 +516,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` strangles `"+players[arr[i+1]][0]+"` with a rope")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -500,7 +525,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` catches `"+players[arr[i+1]][0]+"` off guard and kills him")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -509,7 +534,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` tracks down and kills `"+players[arr[i+1]][0]+"`")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -518,7 +543,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` sets `"+players[arr[i+1]][0]+"` on fire with a molotov")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -527,7 +552,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` poisons `"+players[arr[i+1]][0]+"'s` food, killing him")
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -536,7 +561,7 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` kills `"+players[arr[i+1]][0]+"` with a "+weapons[Math.floor(Math.random()*6)])
                         players[arr[i]][3]++
-                        players[arr[i+1]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
                         arr.splice(i+1,1)
                         i--
                         console.log(arr)
@@ -552,7 +577,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` and `"+players[arr[i+1]][0]+"` track down and kill `"+players[arr[i+2]][0]+"` together")
                         players[arr[i]][3]++
                         players[arr[i+1]][3]++
-                        players[arr[i+2]][1]="Dead"
+                        players[arr[i+2]][1]="Dead";cannons.push(arr[i+2])
                         arr.splice(i+2,1)
                         i--
                         console.log(arr)
@@ -565,7 +590,7 @@ client.on('message', message => {
                         message.channel.send("`"+players[arr[i]][0]+"` and `"+players[arr[i+1]][0]+"` work together to drown `"+players[arr[i+2]][0]+"`")
                         players[arr[i]][3]++
                         players[arr[i+1]][3]++
-                        players[arr[i+2]][1]="Dead"
+                        players[arr[i+2]][1]="Dead";cannons.push(arr[i+2])
                         arr.splice(i+2,1)
                         i--
                         console.log(arr)
@@ -574,8 +599,8 @@ client.on('message', message => {
                     {
                         message.channel.send("`"+players[arr[i]][0]+"` sets an explosive off, killing `"+players[arr[i+1]][0]+"` and `"+players[arr[i+2]][0]+"`")
                         players[arr[i]][3]= 2 + players[arr[i]][3]
-                        players[arr[i+1]][1]="Dead"
-                        players[arr[i+2]][1]="Dead"
+                        players[arr[i+1]][1]="Dead";cannons.push(arr[i+1])
+                        players[arr[i+2]][1]="Dead";cannons.push(arr[i+2])
                         arr.splice(i+1,2)
                         i=i-2
                         console.log(arr)
