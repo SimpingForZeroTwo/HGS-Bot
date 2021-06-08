@@ -7,7 +7,9 @@ let totalP = 0;
 let day = 0;
 let arr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
 var host = ""
+var cannons = [];
 token = process.env.token
+
 client.once('ready', () => {
 	console.log('Ready!');
 });
@@ -92,8 +94,10 @@ client.on('message', message => {
     else if(command==="commence" && game==1 && message.author.username === host)
     {
         console.log("Commenced!")
+
         game = 2
         day=0
+        cannons = []
         arr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
         if(totalP<24)
         {
@@ -187,7 +191,7 @@ client.on('message', message => {
     else if(command==="proceed" && game==2 && message.author.username === host)
     {
         arr.sort( ()=>Math.random()-0.5 );
-        cannons = [];
+        
         console.log(arr)
         if(day==0)
         {
@@ -435,7 +439,7 @@ client.on('message', message => {
 
             }
             message.channel.send("Good Game,Well Played")
-            message.channel.lastMessage.react(":regional_indicator_f:")
+            message.channel.lastMessage.react("🇫")
             cannons=[]
         }
         else
