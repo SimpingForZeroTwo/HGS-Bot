@@ -431,7 +431,7 @@ client.on('message', message => {
             console.log(players)
             console.log(day)
             message.channel.send("`Far in the Distance, you hear the sound of cannon fire. With each boom, echoing through the arena, the sky lights up with the face of a tribute.`")
-            message.channel.send('${cannons.length} cannons fired.');
+            message.channel.send((cannons.length)+" cannons fired.");
             z=0
             while(z < cannons.length)
             {
@@ -623,7 +623,9 @@ client.on('message', message => {
         if(arr.length==1)
         {
             message.channel.send("_ _ _ _ _ _ _")
-            message.channel.send("```fix\n"+players[arr[0]][0]+" is the winner\n"+players[arr[0]][2]+"    Kills: "+players[arr[0]][3]+"\n```")
+            message.channel.send("The crowd cheers and roars as the winner to a well-fought Hunger Games is decided. Congratulations to "+players[arr[0]][2]+", let's all welcome their new hero. \n```fix\n"+players[arr[0]][0]+" is the winner\n"+players[arr[0]][2]+"    Kills: "+players[arr[0]][3]+"\n```")
+            players.sort((a,b) => a[3]-b[3])
+            message.channel.send("`Most Kills : "+players[0][3]+"("+players[0][0]+")")
             message.channel.send("_ _ _ _ _ _ _")
             game=0
         }
