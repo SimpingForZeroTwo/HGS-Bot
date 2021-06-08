@@ -631,7 +631,7 @@ client.on('message', message => {
             message.channel.send("`The crowd cheers and roars as the winner to a well-fought Hunger Games is decided. Congratulations to "+players[arr[0]][2]+", let's all welcome their new champion.` \n```fix\n"+players[arr[0]][0]+" is the winner\n"+players[arr[0]][2]+"    Kills: "+players[arr[0]][3]+"\n```")
             players.sort((a,b) => a[3] - b[3])
             console.log(players)
-            message.channel.send("`Most Kills : "+players[0][3]+"("+players[0][0]+")`")
+            //message.channel.send("`Most Kills : "+players[0][3]+"("+players[0][0]+")`")
             message.channel.send("_ _ _ _ _ _ _")
             game=0
         }
